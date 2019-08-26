@@ -41,7 +41,7 @@ export class GroceryItems extends React.Component<{}, IState> {
                     <thead>
                         <tr>
                             <th scope="col">Items</th>
-                            <th scope="col">List</th>
+                            <th scope="col">List ID</th>
                             <th scope="col">Type</th>
                         </tr>
                     </thead>
