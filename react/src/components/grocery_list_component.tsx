@@ -15,6 +15,17 @@ export class GroceryList extends React.Component<{}, State> {
         }
     }
 
+    findLists = async () => {
+        const resp = await fetch('https://localhost:8070/grocery-lists', {
+            credentials: 'include',
+        });
+        const list = await resp.json();
+        this.setState({
+            ...this.state,
+            list,
+        });
+    }
+
     render() {
         return (
             <div>
@@ -24,11 +35,14 @@ export class GroceryList extends React.Component<{}, State> {
                     <thead>
                         <tr>
                             <th scope="col">Grocery Lists</th>
-                            <th scope="col">Game</th>
+                            <th scope="col">Store Name</th>
                         </tr>
                     </thead>
                     <tbody>
-
+                            <tr>
+                                <td>{list.listId}</td>
+                                <td>{list.store}</td>
+                            </tr>
                     </tbody>
                 </table>
             </div>
